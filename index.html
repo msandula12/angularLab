@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="styles.css">
+	<script src="angular.min.js"></script>
+	<title>Fun with AngularJS</title>
+</head>
+<body ng-app="">
+
+	<h1>Mad Libs</h1>
+	<div id="madLib">
+		<input type="text" ng-model="name" placeholder="Person's name">
+		<input type="text" ng-model="location" placeholder="Name of store">
+		<input type="text" ng-model="amount" placeholder="Dollar amount">
+		<input type="text" ng-model="number" placeholder="Number 1-10">
+		<input type="text" ng-model="item" placeholder="Name of item">
+		<input type="text" ng-model="cost" placeholder="Cost">
+		<h2>
+			One day, {{name || "_____"}} went to {{location || "_____"}} with ${{amount || "_____"}} and bought {{number || "_____"}} {{item || "_____"}}s for ${{cost || "_____"}} each. <br /> After making the purchase, {{name || "_____"}} only had ${{(amount - (number * cost)) || "_____"}} left.
+		</h2>
+	</div>
+	
+	<div ng-init="pearlJam = [
+	{ 
+		name: 'Eddie Vedder',
+		headshot: 'images/eddie.jpg',
+		instrument: 'guitar and vocals',
+		age: 51
+	},
+	{
+		name: 'Stone Gossard',
+		headshot: 'images/stone.jpg',
+		instrument: 'rhythm guitar',
+		age: 49
+	},
+	{
+		name: 'Mike McCready', 
+		headshot: 'images/mike.jpg',
+		instrument: 'lead guitar',
+		age: 49
+	},
+	{
+		name: 'Jeff Ament', 
+		headshot: 'images/jeff.jpg',
+		instrument: 'bass guitar',
+		age: 52
+	},
+	{
+		name: 'Matt Cameron',
+		headshot: 'images/matt.jpg',
+		instrument: 'drums',
+		age: 53
+	}]">
+		<h1>Favorite band roster</h1>
+	</div>
+	<div ng-repeat="member in pearlJam" id="band">
+		<img ng-src="{{member.headshot}}">
+		<h3>{{member.name}} is a member of Pearl Jam.</h3>
+		<p>He is {{member.age}} years old and plays the {{member.instrument}}.</p>
+	</div>
+
+</body>
+</html>
